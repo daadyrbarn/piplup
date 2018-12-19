@@ -1,0 +1,27 @@
+{
+  "name": "piplup",
+  "version": "1.0.0",
+  "description": "Ask and Piplup will answer!",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daadyrbarn/piplup.git"
+  },
+  "keywords": [
+    "bot",
+    "node",
+    "discord"
+  ],
+  "author": "Nikolas Tranæs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/daadyrbarn/piplup/issues"
+  },
+  "homepage": "https://github.com/daadyrbarn/piplup#readme",
+  "dependencies": {
+    "discord.js": "^11.4.2"
+  }
+}
