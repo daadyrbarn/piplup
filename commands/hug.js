@@ -14,7 +14,7 @@ module.exports = {
 		}
 		else {
 			// const userID = client.users.get('name', huggee).id;
-			message.channel.send(`This hug is for @${huggee}! :hugging:`);
+			message.channel.send(`This hug is for ${huggee}! :hugging:`);
 		}
 	},
 };
