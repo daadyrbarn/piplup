@@ -8,12 +8,12 @@ module.exports = {
 	execute(message, args) {
 		const hugger = message.author;
 		const huggee = args[0];
-		const userID = client.users.find(user => user.username == huggee).id;
 
 		if (huggee === 'me') {
 			message.react('🤗');
 		}
 		else {
+			const userID = client.users.find(user => user.username == huggee).id;
 			message.channel.send(`${hugger} wants you to have a hug @${userID} :hugging:`);
 		}
 	},
