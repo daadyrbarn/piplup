@@ -4,8 +4,9 @@ module.exports = {
 	name: 'next',
 	description: 'Info about next season!',
 	execute(message, args) {
-		const date = new date(2019, 0, 15);
-		const countdown = date - Date.now();
+		const date = new Date('January 15, 2019 22:00:00');
+		const now = Date.now();
+		const countdown = date - now;
 		const info = new Discord.RichEmbed()
 			.setColor('#0099ff')
 			.setAuthor('Piplup', 'https://vignette.wikia.nocookie.net/pkmnshuffle/images/1/11/Piplup.png')
