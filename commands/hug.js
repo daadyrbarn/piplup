@@ -1,3 +1,6 @@
+const Discord = require('discord.js');
+const client = new Discord.client();
+
 module.exports = {
 	name: 'hug',
 	description: 'Want a hug?',
