@@ -11,7 +11,7 @@ module.exports = {
 			.setColor('#0099ff')
 			.setAuthor('Piplup', 'https://vignette.wikia.nocookie.net/pkmnshuffle/images/1/11/Piplup.png')
 			.addField('Pip pip!', `Next season starts in ${countdown} days!`)
-			.addField('', 'If you haven\'t already signed up, you can do it [here](https://goo.gl/forms/rSn7n3byrdKRIPgq1)!');
+			.addField('If you haven\'t already signed up, you can do it [here](https://goo.gl/forms/rSn7n3byrdKRIPgq1)!');
 		message.channel.send(info);
 	},
 };
