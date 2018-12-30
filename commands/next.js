@@ -7,7 +7,7 @@ module.exports = {
 		const date = new Date('January 15, 2019 22:00:00 GMT+01:00');
 		const now = Date.now();
 		const msLeft = date - now;
-		const daysLeft = Math.floor(msLeft / (60 * 60 * 24 * 1000));
+		const daysLeft = Math.floor(msLeft / (60 * 60 * 24 * 1000) + 1);
 		const info = new Discord.RichEmbed()
 			.setColor('#0099ff')
 			.setAuthor('Piplup', 'https://vignette.wikia.nocookie.net/pkmnshuffle/images/1/11/Piplup.png')
