@@ -13,8 +13,8 @@ module.exports = {
 			message.react('🤗');
 		}
 		else {
-			const userID = client.users.find(user => user.username == huggee).id;
-			message.channel.send(`${hugger} wants you to have a hug @${userID} :hugging:`);
+			// const userID = client.users.find(user => user.username == huggee).id;
+			message.channel.send(`${hugger} wants you to have a hug @${huggee} :hugging:`);
 		}
 	},
 };
