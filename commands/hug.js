@@ -1,7 +1,3 @@
-const Discord = require('discord.js');
-const guild = Discord.Guild;
-
-
 module.exports = {
 	name: 'hug',
 	description: 'Want a hug?',
@@ -9,15 +5,13 @@ module.exports = {
 	execute(message, args) {
 		const hugger = message.author;
 		const huggee = args[0];
-		guild.Fetchmembers(huggee)
-			.then(console.log)
-			.catch(console.error);
+		const userID = client.users.find(user => user.username == huggee).id;
 
 		if (huggee === 'me') {
 			message.react('🤗');
 		}
 		else {
-			message.channel.send(`${hugger} wants you to have a hug @${huggee} :hugging:`);
+			message.channel.send(`${hugger} wants you to have a hug @${userID} :hugging:`);
 		}
 	},
 };
