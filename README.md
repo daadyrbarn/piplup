@@ -1,2 +1,2 @@
-# piplup
-Ask Piplup anything you want!
+# Piplup
+Ask Piplup anything you want! He will only answer very specific things.
