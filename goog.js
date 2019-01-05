@@ -8,17 +8,76 @@ const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
 // created automatically when the authorization flow completes for the first
 // time.
 const TOKEN_PATH = 'token.json';
-const text = 'me';
+
+// Here are all the initial constants.
+const text = 'orange';
+const text2 = 'daadyrbarn';
+const trainer = 'ForHelleDa'
+const johtoID = '1EkZL4tGPxCgSG7-NfzLH0DtYaO6axSKeD_qNiFbSNIA';
+const archiveID = '19DW4OaF34Hx853i6dqoOlXoM9CUx7r65ZuYl3Jy4Wcc';
+const prevSeasons = ['indigo', 'orange'];
+
+let activeID = '';
+let activeSheet = '';
+let fullRange = '';
+
+if (prevSeasons.includes(text)) {
+	activeID = archiveID;
+	// Use regex to capitalize the first letter and set the active sheet.
+	activeSheet = text.replace(/^\w/, c => c.toUpperCase());
+	console.log(activeSheet);
+
+	if (text == 'indigo') {
+		fullRange = 'A1:AN33';
+	}
+	else {
+		fullRange = 'A1:AA43';
+	}
+	console.log(fullRange);
+}
+else {
+	activeID = johtoID;
+	activeSheet = 'Pointtavle';
+	// CHANGE THIS WHEN SEASON STARTS!!!
+	fullRange = 'A1:AA45';
+	console.log(fullRange);
+}
+
+// Define a vlookup function.
+function vlookup(data, index, value) {
+	for (i = 0; i < data.length; i++) {
+		if (data[i][0].lower() == value) {
+			return data[i][index];
+		}
+	}
+}
+
+/** Previous method.
+if (text == 'indigo') {
+	activeID = indigoID;
+}
+else if (text == 'orange') {
+	activeID = orangeID;
+}
+else if (text == 'johto') {
+	activeID = johtoID;
+}
+else {
+	activeID = archiveID;
+}
+**/
+console.log(activeID);
+
 
 // Load client secrets from a local file.
 fs.readFile('credentials.json', (err, content) => {
 	if (err) return console.log('Error loading client secret file:', err);
 	// Authorize a client with credentials, then call the Google Sheets API.
 	// Add if-statements to react to different arguments.
-	if (text == 'coral') {
+	if (text2 == 'coral') {
 		authorize(JSON.parse(content), listCoral);
 	}
-	else if (text == 'me') {
+	else if (text2 == 'daadyrbarn') {
 		authorize(JSON.parse(content), listMe);
 	}
 });
@@ -83,16 +142,17 @@ function getNewToken(oAuth2Client, callback) {
 function listCoral(auth) {
 	const sheets = google.sheets({ version: 'v4', auth });
 	sheets.spreadsheets.values.get({
-		spreadsheetId: '17FKNfuy6Lm1gf5iTTHEEst3zorAD0Obkbvfw-pUM41E',
-		range: 'Pointtavle!A7:D13',
+		spreadsheetId: activeID,
+		range: `${activeSheet}!A7:D13`,
 	}, (err, res) => {
 		if (err) return console.log('The API returned an error: ' + err);
 		const rows = res.data.values;
 		if (rows.length) {
 			console.log('Name, Rank, Score:');
+			console.log(rows);
 			// Print columns A and E, which correspond to indices 0 and 4.
 			rows.map((row) => {
-				console.log(`${row[0]}, ${row[1]}, ${row[2]}`);
+				console.log(`${row[0]}\t${row[1]}\t${row[2]}`);
 			});
 		}
 		else {
@@ -104,17 +164,20 @@ function listCoral(auth) {
 function listMe(auth) {
 	const sheets = google.sheets({ version: 'v4', auth });
 	sheets.spreadsheets.values.get({
-		spreadsheetId: '17FKNfuy6Lm1gf5iTTHEEst3zorAD0Obkbvfw-pUM41E',
-		range: 'Pointtavle!A23:D23',
+		spreadsheetId: activeID,
+		range: `${activeSheet}!${fullRange}`,
 	}, (err, res) => {
 		if (err) return console.log('The API returned an error: ' + err);
 		const rows = res.data.values;
 		if (rows.length) {
 			console.log('Name, Rank, Score:');
-			// Print columns A and E, which correspond to indices 0 and 4.
-			rows.map((row) => {
-				console.log(`${row[0]}, ${row[1]}, ${row[2]}`);
-			});
+			let line = [];
+			for (i = 0; i < rows.length; i++) {
+				const row = rows[i];
+				if (row[0] == trainer) break;
+			}
+			line = rows[i];
+			console.log(`${line[0]}\t${line[1]}\t${line[2]}`);
 		}
 		else {
 			console.log('No data found.');
