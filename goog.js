@@ -10,30 +10,35 @@ const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
 const TOKEN_PATH = 'token.json';
 
 // Here are all the initial constants.
-const text = 'orange';
-const text2 = 'daadyrbarn';
-const trainer = 'ForHelleDa'
+const season = 'indigo';
+const division = '';
+const trainer = 'daadyrbarn';
 const johtoID = '1EkZL4tGPxCgSG7-NfzLH0DtYaO6axSKeD_qNiFbSNIA';
 const archiveID = '19DW4OaF34Hx853i6dqoOlXoM9CUx7r65ZuYl3Jy4Wcc';
 const prevSeasons = ['indigo', 'orange'];
+const allDivisions = [['div1', 'div2', 'div3'], ['coral', 'jade', 'sea', 'cake']];
+
+// Column ranges for all bosses.
+// boss N of season M is in the range: allBosses[M][N]
+const allBosses = [[['E', 'H'], ['I', 'L'], ['M', 'P'], ['Q', 'T'], ['U', 'X'], ['Y', 'AB'], ['AC', 'AF'], ['AG', 'AJ'], ['AK', 'AN']], [['E', 'H'], ['I', 'L'], ['M', 'P'], ['Q', 'S'], ['T', 'W'], ['X', 'AA']], [['E', 'H'], ['I', 'L'], ['M', 'P'], ['Q', 'T'], ['U', 'X'], ['Y', 'AB']]];
 
 let activeID = '';
 let activeSheet = '';
 let fullRange = '';
 
-if (prevSeasons.includes(text)) {
+if (prevSeasons.includes(season)) {
 	activeID = archiveID;
 	// Use regex to capitalize the first letter and set the active sheet.
-	activeSheet = text.replace(/^\w/, c => c.toUpperCase());
+	activeSheet = season.replace(/^\w/, c => c.toUpperCase());
 	console.log(activeSheet);
 
-	if (text == 'indigo') {
+	if (season == 'indigo') {
 		fullRange = 'A1:AN33';
 	}
 	else {
 		fullRange = 'A1:AA43';
 	}
-	console.log(fullRange);
+	console.log(`${activeSheet} => ${fullRange}`);
 }
 else {
 	activeID = johtoID;
@@ -46,27 +51,12 @@ else {
 // Define a vlookup function.
 function vlookup(data, index, value) {
 	for (i = 0; i < data.length; i++) {
-		if (data[i][0].lower() == value) {
+		if (data[i][0] == value) {
 			return data[i][index];
 		}
 	}
 }
 
-/** Previous method.
-if (text == 'indigo') {
-	activeID = indigoID;
-}
-else if (text == 'orange') {
-	activeID = orangeID;
-}
-else if (text == 'johto') {
-	activeID = johtoID;
-}
-else {
-	activeID = archiveID;
-}
-**/
-console.log(activeID);
 
 
 // Load client secrets from a local file.
@@ -74,10 +64,13 @@ fs.readFile('credentials.json', (err, content) => {
 	if (err) return console.log('Error loading client secret file:', err);
 	// Authorize a client with credentials, then call the Google Sheets API.
 	// Add if-statements to react to different arguments.
-	if (text2 == 'coral') {
+	if (division == 'coral') {
 		authorize(JSON.parse(content), listCoral);
 	}
-	else if (text2 == 'daadyrbarn') {
+	else if (division == 'daadyrbarn') {
+		authorize(JSON.parse(content), listMe);
+	}
+	else {
 		authorize(JSON.parse(content), listMe);
 	}
 });
@@ -172,12 +165,15 @@ function listMe(auth) {
 		if (rows.length) {
 			console.log('Name, Rank, Score:');
 			let line = [];
-			for (i = 0; i < rows.length; i++) {
+			let i = 0;
+			for (i; i < rows.length; i++) {
 				const row = rows[i];
 				if (row[0] == trainer) break;
 			}
 			line = rows[i];
 			console.log(`${line[0]}\t${line[1]}\t${line[2]}`);
+			// const name = rows[i][0];
+			// console.log(name.toLowerCase());
 		}
 		else {
 			console.log('No data found.');
