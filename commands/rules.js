@@ -20,7 +20,7 @@ module.exports = {
 			.setTimestamp()
 			.setFooter(`Use [${prefix}regler] to see the rules in Danish.`);
 
-		if (args[0] === 'eng' || 'english') {
+		if (args[0] === 'eng') {
 			message.channel.send(engEmbed);
 		}
 		else {
