@@ -16,7 +16,7 @@ module.exports = {
 
 		const engEmbed = new Discord.RichEmbed()
 			.setColor('#0099ff')
-			.addField('Pip!', 'Here ya go! [Pokedraft Rules](https://docs.google.com/document/d/e/2PACX-1vQd_K7DIpe6gco0Ft75ujHxzIbFf9iJtoYI9qsW_L3UmYllgmX2ndZYhGmBwmLerJFBgxTU0F58wUdj/pub)', true)
+			.addField('Pip!', 'Here ya go! [Pokedraft Rules in English](https://docs.google.com/document/d/e/2PACX-1vQd_K7DIpe6gco0Ft75ujHxzIbFf9iJtoYI9qsW_L3UmYllgmX2ndZYhGmBwmLerJFBgxTU0F58wUdj/pub)', true)
 			.setTimestamp()
 			.setFooter(`Use [${prefix}regler] to see the rules in Danish.`);
 
