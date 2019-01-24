@@ -6,8 +6,8 @@ module.exports = {
 	execute(message, args) {
 		const info = new Discord.RichEmbed()
 			.setColor('#0099ff')
-			.addField('Pip pip!', 'Drafting for the next season\'s ranked divisions will take place Saturday 12/1 starting at 17:00.')
-			.addField('Location', 'The draft will take place at Trine\'s house! Here\'s a handy link with [directions](https://www.google.com/maps/dir/?api=1&destination=Hans+Broges+Gade+43,+8000+Aarhus)!');
+			.addField('Pip pip!', 'Drafting for Johto League is over! Good luck with the raids!')
+			.addField('Teams', 'You can use ?team [trainer] to see people\'s draft teams.');
 		message.channel.send(info);
 	},
 };
