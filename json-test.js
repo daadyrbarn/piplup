@@ -9,8 +9,11 @@ request.get('http://gsx2json.com/api?id=1EkZL4tGPxCgSG7-NfzLH0DtYaO6axSKeD_qNiFb
 		const data = JSON.parse(body);
 		if(arg0) {
 			const trainer_data = _.where(data.rows, { trainer: arg0 });
-			const first_pick = trainer_data[0].trainer;
-			console.log(first_pick);
+			const trainer = trainer_data[0].trainer;
+			console.log(trainer);
+			const teamlist = [];
+			teamlist.push(trainer_data[0].pick1);
+			console.log(teamlist);
 		}
 		else {console.log('Error');}
 	}
