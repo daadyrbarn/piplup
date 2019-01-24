@@ -41,7 +41,7 @@ module.exports = {
 				}
 			}
 			else {
-				message.channel.send('Something went wrong!');
+				message.channel.send('Something went wrong!' + response.statuscode);
 			}
 		});
 	},
