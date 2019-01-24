@@ -33,14 +33,14 @@ module.exports = {
 					teamlist.push(trainer_data[0].pick9);
 					teamlist.push(trainer_data[0].pick10);
 
-					message.channel.send(teamlist.toString());
+					message.channel.send(;
 				}
 				else {
 					message.channel.send(`No trainer found with the name ${trainer}`);
 				}
 			}
 			else {
-				message.channel.send('Something went wrong!' + response);
+				message.channel.send('Something went wrong: ' + error);
 			}
 		});
 	},
