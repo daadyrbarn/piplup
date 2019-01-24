@@ -5,7 +5,7 @@ module.exports = {
 	name: 'rules',
 	description: 'Give a link to the rules!',
 	args: true,
-	aliases: ['regler'],
+	aliases: ['regler', 'r'],
 
 	execute(message, args) {
 		const danEmbed = new Discord.RichEmbed()
