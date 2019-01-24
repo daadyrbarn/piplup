@@ -34,7 +34,7 @@ module.exports = {
 					teamlist.push(trainer_data[0].pick9);
 					teamlist.push(trainer_data[0].pick10);
 
-					message.channel.send(teamlist);
+					message.channel.send(teamlist.toString());
 				}
 				else {
 					message.channel.send(`No trainer found with the name ${trainer}`);
