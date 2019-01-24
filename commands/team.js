@@ -16,8 +16,7 @@ module.exports = {
 			trainer = message.author.username;
 		}
 
-		const url = 'http://gsx2json.com/api?id=1EkZL4tGPxCgSG7-NfzLH0DtYaO6axSKeD_qNiFbSNIA&sheet=1';
-		request.get(url, function(error, response, body) {
+		request.get('http://gsx2json.com/api?id=1EkZL4tGPxCgSG7-NfzLH0DtYaO6axSKeD_qNiFbSNIA&sheet=1', function(error, response, body) {
 			if (!error && response.statuscode == 200) {
 				const data = JSON.parse(body);
 				if (data.columns.trainer.includes(trainer)) {
