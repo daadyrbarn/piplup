@@ -24,7 +24,7 @@ module.exports = {
 			}
 		});
 
-		if (data.columns[0].includes(trainer)) {
+		if (data.columns.trainer.includes(trainer)) {
 			const trainer_data = _.where(data.rows, { trainer: trainer });
 			const teamlist = [];
 			teamlist.push(trainer_data[0].pick1);
