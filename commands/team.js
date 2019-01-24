@@ -40,7 +40,7 @@ module.exports = {
 				}
 			}
 			else {
-				message.channel.send('Something went wrong!' + response.statuscode);
+				message.channel.send('Something went wrong!' + response);
 			}
 		});
 	},
