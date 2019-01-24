@@ -40,6 +40,9 @@ module.exports = {
 					message.channel.send(`No trainer found with the name ${trainer}`);
 				}
 			}
+			else {
+				message.channel.send('Something went wrong!');
+			}
 		});
 	},
 };
