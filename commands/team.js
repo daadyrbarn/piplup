@@ -1,5 +1,7 @@
 const request = require('request');
 const _ = require('underscore');
+const Discord = require('discord.js');
+const { prefix } = require('../config.json');
 
 module.exports = {
 	name: 'team',
@@ -35,14 +37,22 @@ module.exports = {
 					teamlist.push(trainer_data[0].pick9);
 					teamlist.push(trainer_data[0].pick10);
 
-					message.channel.send(trainer_data[0].trainer);
+					const teamEmbed = new Discord.RichEmbed()
+						.setColor('#0099ff')
+						.addField('Pip! I know that!', `${trainer}'s team is:\n${teamlist.split('\n')}`)
+						.setTimestamp()
+						.setFooter(`Use ${prefix}team [trainer] to see another trainer's draft team.`);
+
+					message.channel.send(teamEmbed);
 				}
 				else {
 					message.channel.send(`No trainer found with the name ${trainer}`);
 				}
 			}
 			else {
-				message.channel.send('Something went wrong: ' + error + ' & ' + response.statusCode);
+				message.channel.send('Something went wrong! Help, @daadyrbarn!');
+				console.log(error);
+				console.log(response.statusCode);
 			}
 		});
 	},
