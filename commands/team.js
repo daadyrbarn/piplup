@@ -46,7 +46,7 @@ module.exports = {
 					message.channel.send(teamEmbed);
 				}
 				else {
-					message.channel.send(`No trainer found with the name ${trainer}`);
+					message.channel.send(`Pip? I couldn't find a trainer with the name ${trainer} in the current season.`);
 				}
 			}
 			else {
