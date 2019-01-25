@@ -20,8 +20,8 @@ module.exports = {
 
 		request.get('http://gsx2json.com/api?id=1EkZL4tGPxCgSG7-NfzLH0DtYaO6axSKeD_qNiFbSNIA&sheet=1', function(error, response, body) {
 			if (!error && response.statusCode == 200) {
-				console.log('Fetched JSON successfully!');
-				console.log(response.statusCode);
+				//	console.log('Fetched JSON successfully!');
+				//	console.log(response.statusCode);
 				const data = JSON.parse(body);
 				if (data.columns.trainer.includes(trainer)) {
 					const trainer_data = _.where(data.rows, { trainer: trainer });
