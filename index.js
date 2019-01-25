@@ -8,7 +8,7 @@ const Discord = require('discord.js');
 const { prefix, token } = require('./config.json');
 // initiate a client object from the Discord library
 const client = new Discord.Client();
-// create a collection tp hold the commands
+// create a collection to hold the commands
 client.commands = new Discord.Collection();
 // create another collection to manage cooldowns
 const cooldowns = new Discord.Collection();
