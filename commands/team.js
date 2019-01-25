@@ -39,7 +39,7 @@ module.exports = {
 
 					const teamEmbed = new Discord.RichEmbed()
 						.setColor('#0099ff')
-						.addField('Pip! I know that!', `${trainer}'s team is:\n${teamlist.join('\n')}`)
+						.addField('Pip! I know that!', `**${trainer}**'s team is:\n${teamlist.join('\n')}`)
 						.setTimestamp()
 						.setFooter(`Use ${prefix}team [trainer] to see another trainer's draft team.`);
 
