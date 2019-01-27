@@ -10,6 +10,7 @@ module.exports = {
 	aliases: ['t'],
 
 	execute(message, args) {
+		// Tested the first conditional and it seems to work!
 		if (args[0] == 'has') {
 			args.splice(0, 1);
 			if (!args.length) return;
@@ -21,12 +22,14 @@ module.exports = {
 				pokemon = args.join(' ');
 			}
 
+			// Something here doesn't work :(
 			request.get('http://gsx2json.com/api?id=1EkZL4tGPxCgSG7-NfzLH0DtYaO6axSKeD_qNiFbSNIA&sheet=1', function(error, response, body) {
 				if (!error && response.statusCode == 200) {
 					const data = JSON.parse(body);
 					let trainers = [];
 					for (let i; i < data.rows.length; i++) {
 						const datarow = data.rows[i];
+						console.log(datarow);
 						if (datarow.includes(pokemon)) trainers += datarow[0];
 					}
 
