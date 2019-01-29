@@ -70,14 +70,15 @@ module.exports = {
 					//	console.log(response.statusCode);
 					const data = JSON.parse(body);
 					let trainer_found;
-					console.log(data.columns.trainer);
-					for (const x in data.columns.trainer) {
-						console.log(x);
-						if (x.replace(/^\w/, c => c.toLowerCase()) == trainer) {
-							trainer_found = x;
+					const trainer_list = data.columns.trainer;
+					console.log(trainer_list);
+					for (const n in trainer_list) {
+						console.log(n);
+						if (trainer_list[n].replace(/^\w/, c => c.toLowerCase()) == trainer) {
+							trainer_found = trainer_list[n];
 						}
 					}
-					if (data.columns.trainer.includes(trainer_found)) {
+					if (trainer_list.includes(trainer_found)) {
 						const trainer_data = _.where(data.rows, { trainer: trainer_found });
 						const teamlist = [];
 						teamlist.push(trainer_data[0].pick1);
