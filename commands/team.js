@@ -2,6 +2,7 @@ const request = require('request');
 const _ = require('underscore');
 const Discord = require('discord.js');
 const { prefix } = require('../config.json');
+const data_url = 'http://gsx2json.com/api?id=1EkZL4tGPxCgSG7-NfzLH0DtYaO6axSKeD_qNiFbSNIA&sheet=1';
 
 module.exports = {
 	name: 'team',
@@ -23,13 +24,13 @@ module.exports = {
 			}
 
 			// Something here doesn't work :(
-			request.get('http://gsx2json.com/api?id=1EkZL4tGPxCgSG7-NfzLH0DtYaO6axSKeD_qNiFbSNIA&sheet=1', function(error, response, body) {
+			request.get(data_url, function(error, response, body) {
 				if (!error && response.statusCode == 200) {
-					console.log('JSON loaded...')
+					console.log('JSON loaded...');
 					const data = JSON.parse(body);
 					let trainers = [];
 					let i;
-					for ( ; i < data.rows.length; i++) {
+					for (i; i < data.rows.length; i++) {
 						const datarow = data.rows[i];
 						console.log(datarow);
 						if (datarow.includes(pokemon)) trainers += datarow[0];
@@ -64,7 +65,7 @@ module.exports = {
 				trainer = message.author.username.toLowerCase();
 			}
 
-			request.get('http://gsx2json.com/api?id=1EkZL4tGPxCgSG7-NfzLH0DtYaO6axSKeD_qNiFbSNIA&sheet=1', function(error, response, body) {
+			request.get(data_url, function(error, response, body) {
 				if (!error && response.statusCode == 200) {
 					//	console.log('Fetched JSON successfully!');
 					//	console.log(response.statusCode);
