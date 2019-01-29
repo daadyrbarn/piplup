@@ -49,7 +49,7 @@ module.exports = {
 					}
 				}
 				else {
-					message.channel.send('Piiiip! Something went wrong! Help, @daadyrbarn!');
+					message.channel.send('Piiiip! Something went wrong! Help, @daadyrbarn#9450!');
 					console.log(error);
 					console.log(response.statusCode);
 				}
@@ -58,10 +58,10 @@ module.exports = {
 		else {
 			let trainer;
 			if(args[0]) {
-				trainer = args[0].replace(/^\w/, c => c.toLowerCase());
+				trainer = args[0].toLowerCase();
 			}
 			else {
-				trainer = message.author.username.replace(/^\w/, c => c.toLowerCase());
+				trainer = message.author.username.toLowerCase();
 			}
 
 			request.get('http://gsx2json.com/api?id=1EkZL4tGPxCgSG7-NfzLH0DtYaO6axSKeD_qNiFbSNIA&sheet=1', function(error, response, body) {
@@ -75,7 +75,7 @@ module.exports = {
 					for (const n in trainer_list) {
 					//	console.log(trainer_list[n]);
 						const t_lower = trainer_list[n].toLowerCase();
-						console.log(t_lower);
+						// console.log(t_lower);
 						if (t_lower == trainer) {
 							trainer_found = trainer_list[n];
 						}
@@ -103,7 +103,7 @@ module.exports = {
 						message.channel.send(teamEmbed);
 					}
 					else {
-						message.channel.send(`Pip? I couldn't find a trainer with the name **${args[0]}** in the current season.`);
+						message.channel.send(`Pip? I couldn't find a trainer with the name **${trainer}** in the current season.`);
 					}
 				}
 				else {
