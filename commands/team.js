@@ -73,7 +73,7 @@ module.exports = {
 					const trainer_list = data.columns.trainer;
 					console.log(trainer_list);
 					for (const n in trainer_list) {
-						console.log(n);
+						console.log(trainer_list[n]);
 						if (trainer_list[n].replace(/^\w/, c => c.toLowerCase()) == trainer) {
 							trainer_found = trainer_list[n];
 						}
