@@ -25,9 +25,11 @@ module.exports = {
 			// Something here doesn't work :(
 			request.get('http://gsx2json.com/api?id=1EkZL4tGPxCgSG7-NfzLH0DtYaO6axSKeD_qNiFbSNIA&sheet=1', function(error, response, body) {
 				if (!error && response.statusCode == 200) {
+					console.log('JSON loaded...')
 					const data = JSON.parse(body);
 					let trainers = [];
-					for (let i; i < data.rows.length; i++) {
+					let i;
+					for ( ; i < data.rows.length; i++) {
 						const datarow = data.rows[i];
 						console.log(datarow);
 						if (datarow.includes(pokemon)) trainers += datarow[0];
@@ -56,10 +58,10 @@ module.exports = {
 		else {
 			let trainer;
 			if(args[0]) {
-				trainer = args[0];
+				trainer = args[0].replace(/^\w/, c => c.toLowerCase());
 			}
 			else {
-				trainer = message.author.username;
+				trainer = message.author.username.replace(/^\w/, c => c.toLowerCase());
 			}
 
 			request.get('http://gsx2json.com/api?id=1EkZL4tGPxCgSG7-NfzLH0DtYaO6axSKeD_qNiFbSNIA&sheet=1', function(error, response, body) {
@@ -67,8 +69,14 @@ module.exports = {
 					//	console.log('Fetched JSON successfully!');
 					//	console.log(response.statusCode);
 					const data = JSON.parse(body);
-					if (data.columns.trainer.includes(trainer)) {
-						const trainer_data = _.where(data.rows, { trainer: trainer });
+					let trainer_found;
+					for (const x in data.columns.trainer) {
+						if (x.replace(/^\w/, c => c.toLowerCase()) == trainer) {
+							trainer_found = x;
+						}
+					}
+					if (data.columns.trainer.includes(trainer_found)) {
+						const trainer_data = _.where(data.rows, { trainer: trainer_found });
 						const teamlist = [];
 						teamlist.push(trainer_data[0].pick1);
 						teamlist.push(trainer_data[0].pick2);
@@ -83,7 +91,7 @@ module.exports = {
 
 						const teamEmbed = new Discord.RichEmbed()
 							.setColor('#0099ff')
-							.addField('Pip! I know that!', `**${trainer}**'s team is:\n${teamlist.join('\n')}`)
+							.addField('Pip! I know that!', `**${trainer_found}**'s team is:\n${teamlist.join('\n')}`)
 							.setTimestamp()
 							.setFooter(`Use ${prefix}team [trainer] to see another trainer's draft team.`);
 
