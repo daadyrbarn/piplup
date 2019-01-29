@@ -71,10 +71,12 @@ module.exports = {
 					const data = JSON.parse(body);
 					let trainer_found;
 					const trainer_list = data.columns.trainer;
-					console.log(trainer_list);
+					// console.log(trainer_list);
 					for (const n in trainer_list) {
-						console.log(trainer_list[n]);
-						if (trainer_list[n].replace(/^\w/, c => c.toLowerCase()) == trainer) {
+					//	console.log(trainer_list[n]);
+						const t_lower = trainer_list[n].toLowerCase();
+						console.log(t_lower);
+						if (t_lower == trainer) {
 							trainer_found = trainer_list[n];
 						}
 					}
