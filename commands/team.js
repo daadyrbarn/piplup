@@ -70,7 +70,9 @@ module.exports = {
 					//	console.log(response.statusCode);
 					const data = JSON.parse(body);
 					let trainer_found;
+					console.log(data.columns.trainer);
 					for (const x in data.columns.trainer) {
+						console.log(x);
 						if (x.replace(/^\w/, c => c.toLowerCase()) == trainer) {
 							trainer_found = x;
 						}
@@ -98,11 +100,11 @@ module.exports = {
 						message.channel.send(teamEmbed);
 					}
 					else {
-						message.channel.send(`Pip? I couldn't find a trainer with the name **${trainer}** in the current season.`);
+						message.channel.send(`Pip? I couldn't find a trainer with the name **${args[0]}** in the current season.`);
 					}
 				}
 				else {
-					message.channel.send('Something went wrong! Help, @daadyrbarn!');
+					message.channel.send('Something went wrong! Help, @daadyrbarn#9450!');
 					console.log(error);
 					console.log(response.statusCode);
 				}
