@@ -11,30 +11,52 @@ module.exports = {
 	aliases: ['t'],
 
 	execute(message, args) {
+		// Find teams that have a specific pokemon.
 		// Tested the first conditional and it seems to work!
+		//
+		// Check if first argument is 'has'
 		if (args[0] == 'has') {
+			// remove first argument
 			args.splice(0, 1);
+			// check if any arguments remain
 			if (!args.length) return;
+			// initiate empty variable to hold name of pokemon
 			let pokemon;
+			// check if pokemon name is 1 word
 			if (args.length == 1) {
+				// set pokemon variable to = argument
 				pokemon = args[0];
 			}
+			// check if argument is moire than 1 word
 			else if (args.length > 1) {
+				// join multiple words into a string
 				pokemon = args.join(' ');
 			}
 
 			// Something here doesn't work :(
+			// load data as JSON object via gsx2json
 			request.get(data_url, function(error, response, body) {
+				// check if data is loaded correctly
 				if (!error && response.statusCode == 200) {
+					// log confirmation
 					console.log('JSON loaded...');
+					// load data into variable
 					const data = JSON.parse(body);
+					// create list to hold trainers with the pokemon in their team
 					let trainers = [];
-					let i;
-					for (i; i < data.rows.length; i++) {
+					// loop trhough the rows in data
+					for (let i = 0; i < data.rows.length; i++) {
+						//
 						const datarow = data.rows[i];
-						console.log(datarow);
-						if (datarow.includes(pokemon)) trainers += datarow[0];
+						const picks = [];
+						for (let j = datarow.length - 1; j > datarow.length - 11; j--) {
+							picks.push(datarow[j]);
+						}
+						console.log(picks);
+						// console.log(datarow);
+						if (datarow.includes(pokemon)) trainers += datarow['trainer'];
 					}
+					console.log(trainers);
 
 					if (trainers.length) {
 						const trainerEmbed = new Discord.RichEmbed()
