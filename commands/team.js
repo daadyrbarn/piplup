@@ -54,7 +54,7 @@ module.exports = {
 						}
 						console.log(picks);
 						// console.log(datarow);
-						if (datarow.includes(pokemon)) trainers += datarow['trainer'];
+						if (picks.includes(pokemon)) trainers += datarow['trainer'];
 					}
 					console.log(trainers);
 
