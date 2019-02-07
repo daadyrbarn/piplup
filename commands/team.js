@@ -43,18 +43,17 @@ module.exports = {
 					// load data into variable
 					const data = JSON.parse(body);
 					// create list to hold trainers with the pokemon in their team
-					let trainers = [];
+					const trainers = [];
 					// loop trhough the rows in data
 					for (let i = 0; i < data.rows.length; i++) {
 						//
 						const datarow = data.rows[i];
 						const picks = [];
-						for (let j = datarow.length - 1; j > datarow.length - 11; j--) {
-							picks.push(datarow[j]);
+						for (let j = 1; j < 11; j++) {
+							const pick = 'pick' + j;
+							picks.push(datarow[pick]);
 						}
-						console.log(picks);
-						// console.log(datarow);
-						if (picks.includes(pokemon)) trainers += datarow['trainer'];
+						if (picks.includes(pokemon)) trainers.push(datarow['trainer']);
 					}
 					console.log(trainers);
 
