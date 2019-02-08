@@ -32,7 +32,6 @@ module.exports = {
 				// join multiple words into a string
 				pokemon = args.join(' ');
 			}
-			pokemon.toLowerCase();
 
 			// Something here doesn't work :(
 			// load data as JSON object via gsx2json
@@ -54,7 +53,7 @@ module.exports = {
 							const pick = 'pick' + j;
 							picks.push(datarow[pick].toLowerCase());
 						}
-						if (picks.includes(pokemon)) trainers.push(datarow['trainer']);
+						if (picks.includes(pokemon.toLowerCase())) trainers.push(datarow['trainer']);
 					}
 					console.log(trainers);
 
