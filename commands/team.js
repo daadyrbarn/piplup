@@ -27,13 +27,13 @@ module.exports = {
 			if (args.length == 1) {
 				// set pokemon variable to = argument
 				pokemon = args[0];
-				lo.startCase(pokemon);
+				// lo.startCase(pokemon);
 			}
 			// check if argument is moire than 1 word
 			else if (args.length > 1) {
 				// join multiple words into a string
 				pokemon = args.join(' ');
-				lo.startCase(pokemon);
+				// lo.startCase(pokemon);
 			}
 
 			// Something here doesn't work :(
@@ -56,14 +56,14 @@ module.exports = {
 							const pick = 'pick' + j;
 							picks.push(datarow[pick]);
 						}
-						if (picks.includes(pokemon)) trainers.push(datarow['trainer']);
+						if (picks.includes(lo.startCase(pokemon))) trainers.push(datarow['trainer']);
 					}
 					console.log(trainers);
 
 					if (trainers.length) {
 						const trainerEmbed = new Discord.RichEmbed()
 							.setColor('#0099ff')
-							.addField('Pip! Found it!', `The trainers with **${pokemon}** in their teams are:\n${trainers.join('\n')}`)
+							.addField('Pip! Found it!', `The trainers with **${lo.startCase(pokemon)}** in their teams are:\n${trainers.join('\n')}`)
 							.setTimestamp()
 							.setFooter(`Use ${prefix}team has [pokemon] to see who drafted a specific pokemon.`);
 
