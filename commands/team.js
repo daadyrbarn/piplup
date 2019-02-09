@@ -27,13 +27,11 @@ module.exports = {
 			if (args.length == 1) {
 				// set pokemon variable to = argument
 				pokemon = args[0];
-				// lo.startCase(pokemon);
 			}
 			// check if argument is moire than 1 word
 			else if (args.length > 1) {
 				// join multiple words into a string
 				pokemon = args.join(' ');
-				// lo.startCase(pokemon);
 			}
 
 			// Something here doesn't work :(
@@ -49,17 +47,20 @@ module.exports = {
 					const trainers = [];
 					// loop trhough the rows in data
 					for (let i = 0; i < data.rows.length; i++) {
-						//
+						// create variable for the current row
 						const datarow = data.rows[i];
+						// create empty list to hold the picks
 						const picks = [];
+						// loop through the datarow and add all picks to the list
 						for (let j = 1; j < 11; j++) {
 							const pick = 'pick' + j;
 							picks.push(datarow[pick]);
 						}
+						// if the list includes pokemon add trainer name to trainers list
 						if (picks.includes(lo.startCase(pokemon))) trainers.push(datarow['trainer']);
 					}
 					console.log(trainers);
-
+					// create embed
 					if (trainers.length) {
 						const trainerEmbed = new Discord.RichEmbed()
 							.setColor('#0099ff')
