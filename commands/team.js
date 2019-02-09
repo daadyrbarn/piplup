@@ -1,6 +1,6 @@
 const request = require('request');
 const _ = require('underscore');
-const startCase = require('lodash.startcase');
+const lo = require('lodash');
 const Discord = require('discord.js');
 const { prefix } = require('../config.json');
 const data_url = 'http://localhost:5000/api?id=1EkZL4tGPxCgSG7-NfzLH0DtYaO6axSKeD_qNiFbSNIA&sheet=1';
@@ -27,13 +27,13 @@ module.exports = {
 			if (args.length == 1) {
 				// set pokemon variable to = argument
 				pokemon = args[0];
-				startCase(pokemon);
+				lo.startCase(pokemon);
 			}
 			// check if argument is moire than 1 word
 			else if (args.length > 1) {
 				// join multiple words into a string
 				pokemon = args.join(' ');
-				startCase(pokemon);
+				lo.startCase(pokemon);
 			}
 
 			// Something here doesn't work :(
