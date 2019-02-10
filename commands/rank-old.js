@@ -1,3 +1,5 @@
+// Old rank command that uses the super slow google scripts api
+// Is no longer in use, but kept for reference
 const Discord = require('discord.js');
 
 module.exports = {
