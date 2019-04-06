@@ -24,14 +24,23 @@ module.exports = {
 			.setTimestamp()
 			.setFooter(`Use ${prefix}sheet [season name] to get a link for previous season leaderboards.`);
 
+		const hoennEmbed = new Discord.RichEmbed()
+			.setColor('#0099ff')
+			.addField('Pip!', 'Here ya go! [Hoenn League Leaderboard](https://docs.google.com/spreadsheets/d/1YI2EFMvXn4uCSejEds0zBmhSUz1ikJYs_NpLNLUuPyg)', true)
+			.setTimestamp()
+			.setFooter(`Use ${prefix}sheet [season name] to get a link for previous season leaderboards.`);
+
 		if (args[0] === 'indigo') {
 			message.channel.send(indigoEmbed);
 		}
 		else if (args[0] == 'orange') {
 			message.channel.send(orangeEmbed);
 		}
-		else {
+		else if (args[0] == 'johto') {
 			message.channel.send(johtoEmbed);
+		}
+		else {
+			message.channel.send(hoennEmbed);
 		}
 	},
 };
