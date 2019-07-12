@@ -30,6 +30,12 @@ module.exports = {
 			.setTimestamp()
 			.setFooter(`Use ${prefix}sheet [season name] to get a link for previous season leaderboards.`);
 
+		const sinnohEmbed = new Discord.RichEmbed()
+			.setColor('#0099ff')
+			.addField('Pip!', 'Here ya go! [Sinnoh League Leaderboard](https://docs.google.com/spreadsheets/d/1tDVFpMYSbPpXahlNo4QXyrkvj0KN1rB8uQ9E55TS19E)', true)
+			.setTimestamp()
+			.setFooter(`Use ${prefix}sheet [season name] to get a link for previous season leaderboards.`);
+
 		if (args[0] === 'indigo') {
 			message.channel.send(indigoEmbed);
 		}
@@ -39,8 +45,11 @@ module.exports = {
 		else if (args[0] == 'johto') {
 			message.channel.send(johtoEmbed);
 		}
-		else {
+		else if (args[0] == 'hoenn') {
 			message.channel.send(hoennEmbed);
+		}
+		else {
+			message.channel.send(sinnohEmbed);
 		}
 	},
 };
