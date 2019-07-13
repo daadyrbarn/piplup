@@ -75,7 +75,7 @@ module.exports = {
 					}
 				}
 				else {
-					message.channel.send('Piiiip! Something went wrong! Help, @daadyrbarn#9450!');
+					message.channel.send('Piiiip! Something went wrong! Help, @daadyrbarn#8000!');
 					console.log(error);
 					console.log(response.statusCode);
 				}
