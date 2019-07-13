@@ -108,6 +108,7 @@ module.exports = {
 					}
 					if (trainer_list.includes(trainer_found)) {
 						const trainer_data = _.where(data.rows, { trainer: trainer_found });
+						const div_name = trainer_data[0].division;
 						const teamlist = [];
 						teamlist.push(trainer_data[0].pick1);
 						teamlist.push(trainer_data[0].pick2);
@@ -122,7 +123,7 @@ module.exports = {
 
 						const teamEmbed = new Discord.RichEmbed()
 							.setColor('#0099ff')
-							.addField('Pip! I know that!', `**${trainer_found}**'s team is:\n${teamlist.join('\n')}`)
+							.addField('Pip! I know that!', `**${trainer_found}**'s ${div_name} division team is:\n${teamlist.join('\n')}`)
 							.setTimestamp()
 							.setFooter(`Use ${prefix}team [trainer] to see another trainer's draft team.`);
 
