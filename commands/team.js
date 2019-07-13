@@ -3,7 +3,7 @@ const _ = require('underscore');
 const lo = require('lodash');
 const Discord = require('discord.js');
 const { prefix } = require('../config.json');
-const data_url = 'http://localhost:5000/api?id=1YI2EFMvXn4uCSejEds0zBmhSUz1ikJYs_NpLNLUuPyg&sheet=1';
+const data_url = 'http://localhost:5000/api?id=1tDVFpMYSbPpXahlNo4QXyrkvj0KN1rB8uQ9E55TS19E&sheet=1';
 
 module.exports = {
 	name: 'team',
