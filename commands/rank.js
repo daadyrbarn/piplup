@@ -71,7 +71,7 @@ module.exports = {
 							.addField('Trainer', `${rank_output.join('\n')}`, true)
 							.addField('Score', `${score_output.join('\n')}`, true);
 
-						message.channel.send(`Pip! ${message.author.id} here are the rankings for **${_.startCase(division_found.toLowerCase())}** division!`, rankEmbed);
+						message.channel.send(`Pip! <@${message.author.id}> here are the rankings for **${_.startCase(division_found.toLowerCase())}** division!`, rankEmbed);
 					}
 				}
 				else {console.log(error);}
