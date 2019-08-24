@@ -68,7 +68,7 @@ module.exports = {
 							.setColor('#0099ff')
 							.setTimestamp()
 							.setFooter(`Use ${prefix}rank [division] to see the rankings in a different division.`)
-							.addField('Trainer', `${rank_output.join('\n')}`, true)
+							.addField('Trainer', `\`${rank_output.join('\n')}\``, true)
 							.addField('Score', `${score_output.join('\n')}`, true);
 
 						message.channel.send(`Pip! <@${message.author.id}> here are the rankings for **${_.startCase(division_found.toLowerCase())}** division!`, rankEmbed);
