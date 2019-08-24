@@ -71,6 +71,7 @@ module.exports = {
 						message.channel.send(`Pip! ${message.author.username} here are the rankings for **${_.startCase(division_found.toLowerCase())} division**!`, rankEmbed);
 					}
 				}
+				else {console.log(error);}
 			});
 		}
 		else {
