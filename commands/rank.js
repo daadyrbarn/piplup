@@ -53,7 +53,7 @@ module.exports = {
 						const sorted_ranks = ranks.sort(function(a, b) {
 							return a[0] - b[0];
 						});
-						// console.log(sorted_ranks);
+
 						const rank_output = [];
 						const score_output = [];
 						for (let i = 0; i < sorted_ranks.length; i++) {
