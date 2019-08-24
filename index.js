@@ -66,6 +66,7 @@ client.on('message', message => {
 	timestamps.set(message.author.id, now);
 	setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
+	console.log(message);
 	// attempts to execute the command. if there's an error, it is logged to the console
 	// and the user is notified.
 	try {
