@@ -12,6 +12,7 @@ module.exports = {
 
 	execute(message, args) {
 
+		console.log(data_url);
 		if (args[0]) {
 			request.get(data_url, function(error, response, body) {
 				if (!error && response.statusCode == 200) {
