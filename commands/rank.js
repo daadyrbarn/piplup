@@ -58,7 +58,7 @@ module.exports = {
 						const rank_output = [];
 						const score_output = [];
 						for (let i = 0; i < sorted_ranks.length; i++) {
-							rank_output.push(`${sorted_ranks[i][0]}. ${sorted_ranks[i][1]}`);
+							rank_output.push(`${sorted_ranks[i][0]}.\t${sorted_ranks[i][1]}`);
 							score_output.push(`${sorted_ranks[i][2]}`);
 						}
 
