@@ -1,4 +1,4 @@
-const Discord = require('request');
+const Discord = require('discord.js');
 const { prefix, data_url } = require('../config.json');
 const request = require('request');
 const _ = require('lodash');
@@ -14,7 +14,7 @@ module.exports = {
 
 		// console.log(data_url);
 		if (args[0]) {
-			request.get('http://localhost:5000/api?id=1tDVFpMYSbPpXahlNo4QXyrkvj0KN1rB8uQ9E55TS19E&sheet=1', function(error, response, body) {
+			request.get(data_url, function(error, response, body) {
 				if (!error && response.statusCode == 200) {
 					const data = JSON.parse(body);
 
