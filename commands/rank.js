@@ -58,8 +58,8 @@ module.exports = {
 						const rank_output = [];
 						const score_output = [];
 						for (let i = 0; i < sorted_ranks.length; i++) {
-							rank_output.push(`${sorted_ranks[i][0]}.\t${sorted_ranks[i][1]}`);
-							score_output.push(`${sorted_ranks[i][2]}`);
+							rank_output.push(`${sorted_ranks[i][0]}\t|\t${sorted_ranks[i][1]}\t|\t${sorted_ranks[i][2]}`);
+							// score_output.push(`${sorted_ranks[i][2]}`);
 						}
 
 						const rankEmbed = new Discord.RichEmbed()
@@ -68,8 +68,8 @@ module.exports = {
 							.setColor('#0099ff')
 							.setTimestamp()
 							.setFooter(`Use ${prefix}rank [division] to see the rankings in a different division.`)
-							.addField('Trainer', `\`${rank_output.join('\n')}\``, true)
-							.addField('Score', `${score_output.join('\n')}`, true);
+							.addField('Rank | Trainer | Score', `\`${rank_output.join('\n')}\``);
+							// .addField('Score', `${score_output.join('\n')}`, true);
 
 						message.channel.send(`Pip! <@${message.author.id}> here are the rankings for **${_.startCase(division_found.toLowerCase())}** division!`, rankEmbed);
 					}
