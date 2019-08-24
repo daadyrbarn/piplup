@@ -28,6 +28,8 @@ module.exports = {
 						}
 					}
 
+					console.log(division_found);
+
 					if (division_list.includes(division_found)) {
 						const division_data = us.where(data.rows, { division: division_found });
 						// console.log(division_data);
