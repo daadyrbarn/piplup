@@ -54,7 +54,6 @@ module.exports = {
 							return a[0] - b[0];
 						});
 						// console.log(sorted_ranks);
-						// så langt så godt!
 						const rank_output = [];
 						const score_output = [];
 						for (let i = 0; i < sorted_ranks.length; i++) {
