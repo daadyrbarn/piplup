@@ -51,7 +51,7 @@ module.exports = {
 						// console.log(score_list);
 						const ranks = _.zip(rank_list, trainer_list, score_list);
 						const sorted_ranks = ranks.sort(function(a, b) {
-							return a[1] - b[1];
+							return a[0] - b[0];
 						});
 						// console.log(sorted_ranks);
 						// så langt så godt!
