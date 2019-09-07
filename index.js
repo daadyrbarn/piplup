@@ -76,6 +76,9 @@ client.on('message', message => {
 		console.error(error);
 		message.reply('There was an error trying to execute that command!');
 	}
+
+	// set "playing" text
+	client.user.setActivity('Hello Kitty Island Adventure');
 });
 // logs the client in. apparently this is done at the end of the file for some reason.
 client.login(token);
