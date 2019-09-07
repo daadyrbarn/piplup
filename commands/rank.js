@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
 const { prefix, data_url } = require('../config.json');
 const request = require('request');
-const _ = require('lodash');
-const us = require('underscore');
+const lo = require('lodash');
+const _ = require('underscore');
 
 module.exports = {
 	name: 'rank',
@@ -21,7 +21,7 @@ module.exports = {
 					let division_found;
 					const division_arg = args[0];
 
-					const division_list = _.uniq(data.columns.division);
+					const division_list = lo.uniq(data.columns.division);
 					for (const d in division_list) {
 						const d_lower = division_list[d].toLowerCase();
 						if (d_lower == division_arg) {
@@ -32,7 +32,7 @@ module.exports = {
 					// console.log(division_found);
 
 					if (division_list.includes(division_found)) {
-						const division_data = us.where(data.rows, { division: division_found });
+						const division_data = _.where(data.rows, { division: division_found });
 						// console.log(division_data);
 						const trainer_list = [];
 						for (const t in division_data) {
@@ -49,7 +49,7 @@ module.exports = {
 							score_list.push(division_data[s].scoretotal);
 						}
 						// console.log(score_list);
-						const ranks = _.zip(rank_list, trainer_list, score_list);
+						const ranks = lo.zip(rank_list, trainer_list, score_list);
 						const sorted_ranks = ranks.sort(function(a, b) {
 							return a[0] - b[0];
 						});
@@ -70,7 +70,7 @@ module.exports = {
 							.addField('Rank | Trainer | Score', `${rank_output.join('\n')}`, true)
 							.addField('Score', `${score_output.join('\n')}`, true);
 
-						message.channel.send(`Pip! <@${message.author.id}> here are the rankings for **${_.startCase(division_found.toLowerCase())}** division!`, rankEmbed);
+						message.channel.send(`Pip! <@${message.author.id}> here are the rankings for **${lo.startCase(division_found.toLowerCase())}** division!`, rankEmbed);
 					}
 				}
 				else {console.log(error);}
