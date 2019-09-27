@@ -36,6 +36,12 @@ module.exports = {
 			.setTimestamp()
 			.setFooter(`Use ${prefix}sheet [season name] to get a link for previous season leaderboards.`);
 
+		const unovaEmbed = new Discord.RichEmbed()
+			.setColor('#0099ff')
+			.addField('Pip!', 'Here ya go! [Unova League Leaderboard](https://docs.google.com/spreadsheets/d/1ZnuIjEIdYeRjPaBp1i76a3W9cuVuahswB-zbS0i-qYc)', true)
+			.setTimestamp()
+			.setFooter(`Use ${prefix}sheet [season name] to get a link for previous season leaderboards.`);
+
 		if (args[0] === 'indigo') {
 			message.channel.send(indigoEmbed);
 		}
@@ -48,8 +54,11 @@ module.exports = {
 		else if (args[0] == 'hoenn') {
 			message.channel.send(hoennEmbed);
 		}
-		else {
+		else if (args[0] == 'sinnoh') {
 			message.channel.send(sinnohEmbed);
+		}
+		else {
+			message.channel.send(unovaEmbed);
 		}
 	},
 };
