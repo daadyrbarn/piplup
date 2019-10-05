@@ -2,8 +2,8 @@ const request = require('request');
 const _ = require('underscore');
 const lo = require('lodash');
 const Discord = require('discord.js');
-const { prefix } = require('../config.json');
-const data_url = 'http://localhost:5000/api?id=1ZnuIjEIdYeRjPaBp1i76a3W9cuVuahswB-zbS0i-qYc&sheet=1';
+const { prefix, data_url } = require('../config.json');
+// const data_url = 'http://localhost:5000/api?id=1ZnuIjEIdYeRjPaBp1i76a3W9cuVuahswB-zbS0i-qYc&sheet=1';
 
 module.exports = {
 	name: 'team',
