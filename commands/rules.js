@@ -10,13 +10,13 @@ module.exports = {
 	execute(message, args) {
 		const danEmbed = new Discord.RichEmbed()
 			.setColor('#0099ff')
-			.addField('Pip!', 'Jeg tale god dansk! [Pokedraft Regler](https://docs.google.com/document/d/e/2PACX-1vQExQk6I9o8josav1W_A4GO1DONHSY3xv6m63cqM7QQRLDijE-JwZkUmvK7fuutLar4yFNF4qMW8dMg/pub)', true)
+			.addField('Pip!', 'Jeg tale god dansk! [Pokedraft Regler](https://docs.google.com/document/d/e/2PACX-1vRs_hRjSfeFtLYZhfzEHB8_xGxttjdq4Rfg8T7suLSMIJO_96BHiVpGDZOXtKm7U_8ckW0FVZjpt9Ni/pub)', true)
 			.setTimestamp()
 			.setFooter(`Use [${prefix}rules eng] to see the rules in English.`);
 
 		const engEmbed = new Discord.RichEmbed()
 			.setColor('#0099ff')
-			.addField('Pip!', 'Here ya go! [Pokedraft Rules in English](https://docs.google.com/document/d/e/2PACX-1vRidum6ZeZ7DCtqzQH2b1VqqxaOT5p4Z5ge7Xva2Ats5tUpZbh1bXmO9eLCzFdgJ2ZCwx8_Z-efXo5Q/pub)', true)
+			.addField('Pip!', 'Here ya go! [Pokedraft Rules in English](https://docs.google.com/document/d/e/2PACX-1vTIiqiM5Ylus58Gro2vhZshSvrGHF-GYkawpvYEAJBYKrdOylsgSBQ2sKoYLGZWjIVtqqF59TN_DWBZ/pub)', true)
 			.setTimestamp()
 			.setFooter(`Use [${prefix}regler] to see the rules in Danish.`);
 
