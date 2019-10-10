@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const { prefix, data_url } = require('../config.json');
+const { prefix, data_url, sheet_url } = require('../config.json');
 const request = require('request');
 const lo = require('lodash');
 const _ = require('underscore');
@@ -62,8 +62,8 @@ module.exports = {
 						}
 
 						const rankEmbed = new Discord.RichEmbed()
-							.setTitle('Sinnoh League scoreboard')
-							.setURL('https://docs.google.com/spreadsheets/d/1tDVFpMYSbPpXahlNo4QXyrkvj0KN1rB8uQ9E55TS19E')
+							.setTitle('Unova League scoreboard')
+							.setURL(`${sheet_url}`)
 							.setColor('#0099ff')
 							.setTimestamp()
 							.setFooter(`Use ${prefix}rank [division] to see the rankings in a different division.`)
