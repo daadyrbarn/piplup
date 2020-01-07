@@ -99,9 +99,14 @@ module.exports = {
 					const trainer_list = data.columns.trainer;
 					// console.log(trainer_list);
 					for (const n in trainer_list) {
-					//	console.log(trainer_list[n]);
-						const t_lower = trainer_list[n].toLowerCase();
-						// console.log(t_lower);
+						// console.log(trainer_list[n]);
+						let t_lower;
+						if (trainer_list[n] == 0) {
+							t_lower = 'missing_no';
+						}
+						else {
+							t_lower = trainer_list[n].toLowerCase();
+						}
 						if (t_lower == trainer) {
 							trainer_found = trainer_list[n];
 						}
