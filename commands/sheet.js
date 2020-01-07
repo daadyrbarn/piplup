@@ -42,6 +42,12 @@ module.exports = {
 			.setTimestamp()
 			.setFooter(`Use ${prefix}sheet [season name] to get a link for previous season leaderboards.`);
 
+		const kalosEmbed = new Discord.RichEmbed()
+			.setColor('#0099ff')
+			.addField('Pip!', 'Here ya go! [Kalos League Leaderboard](https://docs.google.com/spreadsheets/d/1HSGsI_6jnpuJMyMGyMZvXkv-IeiD_IGAX98P_A3lKIU)', true)
+			.setTimestamp()
+			.setFooter(`Use ${prefix}sheet [season name] to get a link for previous season leaderboards.`);
+
 		if (args[0] === 'indigo') {
 			message.channel.send(indigoEmbed);
 		}
@@ -57,8 +63,11 @@ module.exports = {
 		else if (args[0] == 'sinnoh') {
 			message.channel.send(sinnohEmbed);
 		}
-		else {
+		else if (args[0] == 'unova') {
 			message.channel.send(unovaEmbed);
+		}
+		else {
+			message.channel.send(kalosEmbed);
 		}
 	},
 };
